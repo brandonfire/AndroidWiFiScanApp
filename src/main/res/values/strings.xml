@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WifiAPscan</string>
+    <string name="action_settings">Settings</string>
+</resources>
