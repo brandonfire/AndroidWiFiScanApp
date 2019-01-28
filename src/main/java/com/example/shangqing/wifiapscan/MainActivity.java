@@ -1,8 +1,4 @@
 package com.example.shangqing.wifiapscan;
-
-
-
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -78,7 +74,7 @@ public class MainActivity extends Activity {
         locationMangaer = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationListener = new MyLocationListener();
 
-        locationMangaer.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 10,locationListener);
+        locationMangaer.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10,locationListener);
 
 
 
@@ -129,7 +125,7 @@ public class MainActivity extends Activity {
 
         locationListener = new MyLocationListener();
 
-        locationMangaer.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 10,locationListener);
+        locationMangaer.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10,locationListener);
 
         mainWifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
@@ -224,20 +220,20 @@ public class MainActivity extends Activity {
             wifiList = mainWifi.getScanResults();
             //int x = mainWifi.getFrequency();
             sb.append("\nNumber of Wifi APs: "+ (wifiList.size())+"\n\n");
-            //for(int i = 0; i < wifiList.size(); i++){
+            for(int i = 0; i < wifiList.size(); i++){
 
-                //sb.append(new Integer(i+1).toString() + "\n ");
+                sb.append(new Integer(i+1).toString() + "\n ");
 
-                //sb.append("SSID: "+wifiList.get(i).SSID+"\n");
-                //sb.append("MAC: "+ wifiList.get(i).BSSID+"\n");
-                //sb.append("RSSI: "+ wifiList.get(i).level+"\n");
-                //sb.append("Time: "+ wifiList.get(i).timestamp+"\n");
+                sb.append("SSID: "+wifiList.get(i).SSID+"\n");
+                sb.append("MAC: "+ wifiList.get(i).BSSID+"\n");
+                sb.append("RSSI: "+ wifiList.get(i).level+"\n");
+                sb.append("Time: "+ wifiList.get(i).timestamp+"\n");
                 sb.append("longitude: " + longitude+"\n");
                 sb.append("latitude: " + latitude+"\n");
                 //sb.append(wifiList.get(i).toString()+"\n");
                 //sb.append((wifiList.get(i)).toString());
                 sb.append("\n\n");
-            //}
+            }
             mainText.setText(sb);
 
             //write to file
