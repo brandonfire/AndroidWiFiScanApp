@@ -98,20 +98,7 @@ public class MainActivity extends Activity {
         registerReceiver(receiverWifi, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
         mainWifi.startScan();
         mainText.setText("Starting Scan...");
-        /*mainText = (TextView) findViewById(R.id.button);
-        mainWifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        if (mainWifi.isWifiEnabled() == false)
-        {
-            // If wifi disabled then enable it
-            Toast.makeText(getApplicationContext(), "wifi is disabled..making it enabled",
-                    Toast.LENGTH_LONG).show();
-
-            mainWifi.setWifiEnabled(true);
-        }
-        receiverWifi = new WifiReceiver();
-        registerReceiver(receiverWifi, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
-        mainWifi.startScan();
-        mainText.setText("Starting Scan...");*/
+        
 
     }
     public void getWifi(View v) {
@@ -293,12 +280,7 @@ public class MainActivity extends Activity {
             //Log.v(TAG, longitude);
             latitude = loc.getLatitude();
             b = loc.getLatitude();
-            //Log.v(TAG, latitude);
-
-            /*------- To get city name from coordinates -------- */
-            //String cityName = null;
-            //Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
-            //List<Address> addresses;
+            
 
         }
         public void onReceive(Context c, Intent intent) {
